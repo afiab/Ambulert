@@ -1,6 +1,7 @@
 let board = []
 
 //x and y coords of pointers
+let rawtime = 0;
 let bluex = 250;
 let bluey = 410;
 let red1x = 0;
@@ -100,6 +101,7 @@ function keyPressed(){
     blueds = false;
     bluess = false;
   }else if (key == 'X' || key == 'x') {
+    rawtime = 0;
     //x and y coords of pointers
     bluex = Math.floor(Math.random() * 10)*50;
     bluey = Math.floor(Math.random() * 10)*50 +10;
@@ -311,6 +313,7 @@ function draw() {
       }
     }
     blueslow = !blueslow;
+    rawtime +=1;
   }
   
   fill(248,248,248);
@@ -331,11 +334,13 @@ function draw() {
     fill(248,248,248);
      stroke(248,248,248);
      text("LOSER; Press X to try again",550, 385);
+     text("Total time: "+(rawtime/15).toFixed(2)+" seconds",550, 415);
   }else{
     if( (Math.abs(red1x-bluex)<=Lose && Math.abs(red1y-bluey)<=Lose) || (Math.abs(red2x-bluex)<=Lose && Math.abs(red2y-bluey)<=Lose) || (Math.abs(red3x-bluex)<=Lose && Math.abs(red3y-bluey)<=Lose) ){
        fill(248,248,248);
        stroke(248,248,248);
        text("LOSER; Press X to try again",550, 385);
+       text("Total time: "+(rawtime/15).toFixed(2)+" seconds",550, 435);
        lost = true;
     }else if( (Math.abs(red1x-bluex)<=Warn && Math.abs(red1y-bluey)<=Warn) || (Math.abs(red2x-bluex)<=Warn && Math.abs(red2y-bluey)<=Warn) || (Math.abs(red3x-bluex)<=Warn && Math.abs(red3y-bluey)<=Warn) ){
        fill(248,248,248);
