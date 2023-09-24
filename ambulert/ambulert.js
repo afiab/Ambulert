@@ -334,7 +334,7 @@ function draw() {
     fill(248,248,248);
      stroke(248,248,248);
      text("LOSER; Press X to try again",550, 385);
-     text("Total time: "+(rawtime/15).toFixed(2)+" seconds",550, 415);
+     text("Total time: "+(rawtime/15).toFixed(2)+" seconds",550, 435);
   }else{
     if( (Math.abs(red1x-bluex)<=Lose && Math.abs(red1y-bluey)<=Lose) || (Math.abs(red2x-bluex)<=Lose && Math.abs(red2y-bluey)<=Lose) || (Math.abs(red3x-bluex)<=Lose && Math.abs(red3y-bluey)<=Lose) ){
        fill(248,248,248);
