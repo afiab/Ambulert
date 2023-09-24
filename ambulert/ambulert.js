@@ -359,8 +359,8 @@ function draw() {
   textFont('Nunito Sans',50);
   text("Press X to Restart",550,105);
   textSize(30);
-  text("Use ASWD to control the Blue Car",550, 205);
-  text("as if you're driving on the road",550, 255);
+  text("Use ASWD to drive the Blue Car",550, 205);
+  text("towards the Blue Square",550, 255);
   text("Avoid the Red Ambulances",550, 305);
   
   let Warn = 100;
