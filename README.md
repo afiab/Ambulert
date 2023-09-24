@@ -7,7 +7,7 @@ Automobile traffic can be a big problem in urban areas, especially densely popul
 
 The website provides visuals of a proposed app solution to this problem. 
 
-At the bottom of the site is an interactive game that acts as an example of how the app would work. The player uses the `ASDW` keys to control their car (the blue arrow), and avoid the ambulances (the red arrows). The game ends when the blue car crosses paths with an ambulance, and the game displays how many seconds the player lasted. Finally, the player has the option to restart the game with the `X` key.
+At the bottom of the site is an interactive game that acts as an example of how the app would work. The player uses the `ASDW` keys to control their car (the blue arrow), and avoid the ambulances (the red arrows). The goal of the game is to get the blue car to the blue square without clashing with an ambulance. The game ends when the blue car crosses paths with an ambulance, and the game displays how many seconds the player lasted. Once the blue car hits the blue square, a new blue square is generated. Finally, the player has the option to restart the game with the `X` key. 
 
 ### The Thought Process
 
