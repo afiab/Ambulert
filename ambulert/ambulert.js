@@ -25,6 +25,7 @@ let blueds = true;
 let bluess = true;
 
 let blueslow = true;
+let lost = false;
 //initializing array with board colors
 for (let x=0; x<=50; x++){
   let temp = []
@@ -124,6 +125,7 @@ function keyPressed(){
     bluess = true;
     
     blueslow = true;
+    lost = false;
   }
 }
 
@@ -159,155 +161,157 @@ function draw() {
   let blue = new Pointer(bluex, bluey,'cyan', blued, blues);
   blue.display()
   
-  //direction for red1d
-  if (red1x%50 ==0 && (red1y-10)%50==0){
-    red1d = Math.random(0,1)>0.5;
-    red1s = Math.random(0,1)>0.5;
-  }
-  if (red1d){//horizontal
-    if (red1s) { //go right
-      if (red1x+10<=500){
-        red1x +=10;
-      }else{
-        red1s = false;
+  if (!lost) {
+    //direction for red1d
+    if (red1x%50 ==0 && (red1y-10)%50==0){
+      red1d = Math.random(0,1)>0.5;
+      red1s = Math.random(0,1)>0.5;
+    }
+    if (red1d){//horizontal
+      if (red1s) { //go right
+        if (red1x+10<=500){
+          red1x +=10;
+        }else{
+          red1s = false;
+        }
+      }else{//go left
+        if (red1x-10>=0){
+          red1x -=10;
+        }else{
+          red1s = true;
+        }
       }
-    }else{//go left
-      if (red1x-10>=0){
-        red1x -=10;
-      }else{
-        red1s = true;
+    }else{//vertical
+      if (red1s) { //go down
+        if (red1y +10<= 500){
+          red1y +=10;
+        }else{
+          red1s = false;
+        }
+      }else{//go up
+        if (red1y-10>=10){
+          red1y -=10;
+        }else{
+          red1s = true;
+        }
       }
     }
-  }else{//vertical
-    if (red1s) { //go down
-      if (red1y +10<= 500){
-        red1y +=10;
-      }else{
-        red1s = false;
+    //red2 here
+    if (red2x%50 ==0 && (red2y-10)%50==0){
+      red2d = Math.random(0,1)>0.5;
+      red2s = Math.random(0,1)>0.5;
+    }
+    if (red2d){//horizontal
+      if (red2s) { //go right
+        if (red2x+10<=500){
+          red2x +=10;
+        }else{
+          red2s = false;
+        }
+      }else{//go left
+        if (red2x-10>=0){
+          red2x -=10;
+        }else{
+          red2s = true;
+        }
       }
-    }else{//go up
-      if (red1y-10>=10){
-        red1y -=10;
-      }else{
-        red1s = true;
+    }else{//vertical
+      if (red2s) { //go down
+        if (red2y+10<=500){
+          red2y +=10;
+        }else{
+          red2s = false;
+        }
+      }else{//go up
+        if (red2y-10>=10){
+          red2y -=10;
+        }else{
+          red2s = true;
+        }
       }
     }
-  }
-  //red2 here
-  if (red2x%50 ==0 && (red2y-10)%50==0){
-    red2d = Math.random(0,1)>0.5;
-    red2s = Math.random(0,1)>0.5;
-  }
-  if (red2d){//horizontal
-    if (red2s) { //go right
-      if (red2x+10<=500){
-        red2x +=10;
-      }else{
-        red2s = false;
+    //direction for red3
+    if (red3x%50 ==0 && (red3y-10)%50==0){
+      red3d = Math.random(0,1)>0.5;
+      red3s = Math.random(0,1)>0.5;
+    }
+    if (red3d){//horizontal
+      if (red3s) { //go right
+        if (red3x+10<=500){
+          red3x +=10;
+        }else{
+          red3s = false;
+        }
+      }else{//go left
+        if (red3x-10>=0){
+          red3x -=10;
+        }else{
+          red3s = true;
+        }
       }
-    }else{//go left
-      if (red2x-10>=0){
-        red2x -=10;
-      }else{
-        red2s = true;
+    }else{//vertical
+      if (red3s) { //go down
+        if (red3y +10<= 500){
+          red3y +=10;
+        }else{
+          red3s = false;
+        }
+      }else{//go up
+        if (red3y-10>=10){
+          red3y -=10;
+        }else{
+          red3s = true;
+        }
       }
     }
-  }else{//vertical
-    if (red2s) { //go down
-      if (red2y+10<=500){
-        red2y +=10;
-      }else{
-        red2s = false;
+    
+    //blue here
+    if (bluex%50 ==0 && (bluey-10)%50==0){
+      if (blued != blueds){
+        blued = blueds;
       }
-    }else{//go up
-      if (red2y-10>=10){
-        red2y -=10;
-      }else{
-        red2s = true;
-      }
-    }
-  }
-  //direction for red3
-  if (red3x%50 ==0 && (red3y-10)%50==0){
-    red3d = Math.random(0,1)>0.5;
-    red3s = Math.random(0,1)>0.5;
-  }
-  if (red3d){//horizontal
-    if (red3s) { //go right
-      if (red3x+10<=500){
-        red3x +=10;
-      }else{
-        red3s = false;
-      }
-    }else{//go left
-      if (red3x-10>=0){
-        red3x -=10;
-      }else{
-        red3s = true;
-      }
-    }
-  }else{//vertical
-    if (red3s) { //go down
-      if (red3y +10<= 500){
-        red3y +=10;
-      }else{
-        red3s = false;
-      }
-    }else{//go up
-      if (red3y-10>=10){
-        red3y -=10;
-      }else{
-        red3s = true;
-      }
-    }
-  }
-  
-  //blue here
-  if (bluex%50 ==0 && (bluey-10)%50==0){
-    if (blued != blueds){
-      blued = blueds;
-    }
-    if (blues != bluess) {
-      blues = bluess;
-    }
-  }
-  if (blued && blueslow){//horizontal
-    //set blues to bluess if conditions met
-    if (blues != bluess) {
+      if (blues != bluess) {
         blues = bluess;
       }
-    if (blues) { //go right
-      if (bluex+10<=500){
-        bluex +=10;
-      }else{
-        blues = false;
+    }
+    if (blued && blueslow){//horizontal
+      //set blues to bluess if conditions met
+      if (blues != bluess) {
+          blues = bluess;
+        }
+      if (blues) { //go right
+        if (bluex+10<=500){
+          bluex +=10;
+        }else{
+          blues = false;
+        }
+      }else{//go left
+        if (bluex-10>=0){
+          bluex -=10;
+        }else{
+          blues = true;
+        }
       }
-    }else{//go left
-      if (bluex-10>=0){
-        bluex -=10;
-      }else{
-        blues = true;
+    }else if(!blued && blueslow){//vertical
+      if (blues != bluess){
+        blues = bluess;
+      }
+      if (blues) { //go down
+        if (bluey +10<= 510){
+          bluey +=10;
+        }else{
+          blues = false;
+        }
+      }else{//go up
+        if (bluey-10>=10){
+          bluey -=10;
+        }else{
+          blues = true;
+        }
       }
     }
-  }else if(!blued && blueslow){//vertical
-    if (blues != bluess){
-      blues = bluess;
-    }
-    if (blues) { //go down
-      if (bluey +10<= 510){
-        bluey +=10;
-      }else{
-        blues = false;
-      }
-    }else{//go up
-      if (bluey-10>=10){
-        bluey -=10;
-      }else{
-        blues = true;
-      }
-    }
+    blueslow = !blueslow;
   }
-  blueslow = !blueslow;
   
   fill(51,46,46);
   stroke(51,46,46);
@@ -319,12 +323,25 @@ function draw() {
   text("Avoid the Red Ambulances",550, 305);
   
   let Warn = 100;
-  if( (Math.abs(red1x-bluex)<=Warn && Math.abs(red1y-bluey)<=Warn) || (Math.abs(red2x-bluex)<=Warn && Math.abs(red2y-bluey)<=Warn) || (Math.abs(red3x-bluex)<=Warn && Math.abs(red3y-bluey)<=Warn) ){
-     text("An Ambulance is nearby!",550, 385);
+  let Lose = 20;
+  stroke(255,39,39);
+  fill(255,39,39);
+  rect(520, 355, 400, 100);
+  if (lost){
+    fill(51,46,46);
+     stroke(51,46,46);
+     text("LOSER; Press X to try again",550, 385);
   }else{
-    stroke(255,39,39);
-    fill(255,39,39);
-    rect(520, 355, 400, 100);
+    if( (Math.abs(red1x-bluex)<=Lose && Math.abs(red1y-bluey)<=Lose) || (Math.abs(red2x-bluex)<=Lose && Math.abs(red2y-bluey)<=Lose) || (Math.abs(red3x-bluex)<=Lose && Math.abs(red3y-bluey)<=Lose) ){
+       fill(51,46,46);
+       stroke(51,46,46);
+       text("LOSER; Press X to try again",550, 385);
+       lost = true;
+    }else if( (Math.abs(red1x-bluex)<=Warn && Math.abs(red1y-bluey)<=Warn) || (Math.abs(red2x-bluex)<=Warn && Math.abs(red2y-bluey)<=Warn) || (Math.abs(red3x-bluex)<=Warn && Math.abs(red3y-bluey)<=Warn) ){
+       fill(51,46,46);
+       stroke(51,46,46);
+       text("An Ambulance is nearby!",550, 385);
+    }
   }
   
 }
