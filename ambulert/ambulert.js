@@ -1,10 +1,4 @@
-const xStart = 250;
-const yStart = 250;
-//starting x and y for car
 let board = []
-
-let xCor = [];
-let yCor = [];
 
 //x and y coords of pointers
 let bluex = 250;
@@ -104,6 +98,32 @@ function keyPressed(){
   }else if (key == 'W' || key == 'w') {
     blueds = false;
     bluess = false;
+  }else if (key == 'X' || key == 'x') {
+    //x and y coords of pointers
+    bluex = Math.floor(Math.random() * 10)*50;
+    bluey = Math.floor(Math.random() * 10)*50 +10;
+    red1x = Math.floor(Math.random() * 10)*50;
+    red1y = Math.floor(Math.random() * 10)*50 +10;
+    red2x = Math.floor(Math.random() * 10)*50;
+    red2y = Math.floor(Math.random() * 10)*50 +10;
+    red3x = Math.floor(Math.random() * 10)*50;
+    red3y = Math.floor(Math.random() * 10)*50 +10;
+    //horizontal or vertical movement
+    red1d = true;
+    red2d = true;
+    red3d = true;
+    blued = true;
+    //left+right or up+down movement
+    red1s = true;
+    red2s = true;
+    red3s = true;
+    blues = true;
+    
+    //varies on key input
+    blueds = true;
+    bluess = true;
+    
+    blueslow = true;
   }
 }
 
@@ -288,4 +308,12 @@ function draw() {
     }
   }
   blueslow = !blueslow;
+  
+  fill(51,46,46);
+  stroke(51,46,46);
+  textFont('Nunito Sans',50);
+  text("Press X to Restart",540,105);
+  textSize(30);
+  text("Use ASWD to control the Blue Car",540, 205);
+  text("Avoid the Red Ambulances",540, 255);
 }
