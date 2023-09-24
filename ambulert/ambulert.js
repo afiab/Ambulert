@@ -56,7 +56,8 @@ let blueImage;
 let redImage;
 
 function setup() {
-  createCanvas(510,510);
+  createCanvas(1000,510);
+  background(255,39,39);
   frameRate(15);
   stroke(255);
   
@@ -109,11 +110,16 @@ function keyPressed(){
 function draw() {
   //draw the city
   for (let x=0;x<board.length;x++){
-    for (let y=0;y<board.length;y++){
+    for (let y=0;y<board[x].length;y++){
       if (board[x][y]){
         stroke('black');
         fill('black');
         square(x*10,y*10,50);
+        if (x==board.length-1){
+          fill(255,39,39);
+          stroke(255,39,39);
+          square((x*10)+10,y*10,50);
+        }
       }else{
         stroke('gray');
         fill('gray');
@@ -268,7 +274,7 @@ function draw() {
       blues = bluess;
     }
     if (blues) { //go down
-      if (bluey +10<= 510){
+      if (bluey +10<= 500){
         bluey +=10;
       }else{
         blues = false;
