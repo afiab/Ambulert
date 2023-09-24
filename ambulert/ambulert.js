@@ -19,10 +19,12 @@ let red3y = 60;
 let red1d = true;
 let red2d = true;
 let red3d = true;
+let blued = true;
 //left+right or up+down movement
 let red1s = true;
 let red2s = true;
 let red3s = true;
+let blues = true;
 //initializing array with board colors
 for (let x=0; x<=50; x++){
   let temp = []
@@ -106,7 +108,7 @@ function draw() {
   red2.display()
   let red3 = new Pointer(red3x, red3y,'red', red3d, red3s);
   red3.display()
-  let blue = new Pointer(bluex, bluey,'cyan');
+  let blue = new Pointer(bluex, bluey,'cyan', blued, blues);
   blue.display()
   
   //direction for red1d
@@ -208,6 +210,41 @@ function draw() {
         red3y -=10;
       }else{
         red3s = true;
+      }
+    }
+  }
+  
+  //blue here
+  if (bluex%50 ==0 && (bluey-10)%50==0){
+    blued = Math.random(0,1)>0.5;
+    blues = Math.random(0,1)>0.5;
+  }
+  if (blued){//horizontal
+    if (blues) { //go right
+      if (bluex+10<=500){
+        bluex +=10;
+      }else{
+        blues = false;
+      }
+    }else{//go left
+      if (bluex-10>=0){
+        bluex -=10;
+      }else{
+        blues = true;
+      }
+    }
+  }else{//vertical
+    if (blues) { //go down
+      if (bluey +10<= 500){
+        bluey +=10;
+      }else{
+        blues = false;
+      }
+    }else{//go up
+      if (red3y-10>=10){
+        bluey -=10;
+      }else{
+        blues = true;
       }
     }
   }
