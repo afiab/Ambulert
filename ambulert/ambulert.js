@@ -317,4 +317,16 @@ function draw() {
   text("Use ASWD to control the Blue Car",550, 205);
   text("as if you're driving on the road",550, 255);
   text("Avoid the Red Ambulances",550, 305);
+  
+  let Warn = 100;
+  if( (Math.abs(red1x-bluex)<=Warn && Math.abs(red1y-bluey)<=Warn) ||
+      (Math.abs(red2x-bluex)<=Warn && Math.abs(red2y-bluey)<=Warn) ||
+      (Math.abs(red3x-bluex)<=Warn && Math.abs(red3y-bluey)<=Warn) ){
+     text("An Ambulance is nearby!",550, 375);
+  }else{
+    stroke(255,39,39);
+    fill(255,39,39);
+    rect(520, 355, 400, 100);
+  }
+  
 }
