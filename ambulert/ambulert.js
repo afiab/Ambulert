@@ -55,16 +55,29 @@ function setup() {
 }
 
 class Pointer {
-  constructor(x, y, z) {
-    this.x = x+5;
-    this.y = y;
-    this.z = z;
+  constructor(x, y, z, d, s) {
+    this.x = x+5; //x coor
+    this.y = y; // y coor
+    this.z = z; // color
+    this.d = d; //horizontal if true
+    this.s = s; //positive if true
   }
   display() {
     fill(this.z);
     stroke(this.z);
-    triangle(this.x-5,this.y-10,this.x,this.y,this.x,this.y-7.5);//left
-    triangle(this.x,this.y-7.5,this.x,this.y,this.x+5,this.y-10);
+    if (!this.d && this.s){ //down
+      triangle(this.x-5,this.y-10,this.x,this.y,this.x,this.y-7.5);//left
+      triangle(this.x,this.y-7.5,this.x,this.y,this.x+5,this.y-10);
+    }else if (!this.d && !this.s){
+      triangle(this.x-5,this.y,this.x,this.y-10,this.x,this.y-2.5);//left
+      triangle(this.x+5,this.y,this.x,this.y-10,this.x,this.y-2.5);
+    }else if (this.d && this.s){
+      triangle(this.x-5,this.y-10,this.x+5,this.y-5,this.x-2.5,this.y-5);//left
+      triangle(this.x-5,this.y,this.x+5,this.y-5,this.x-2.5,this.y-5);
+    }else if (this.d && !this.s){
+      triangle(this.x+5,this.y-10,this.x-5,this.y-5,this.x+2.5,this.y-5);//left
+      triangle(this.x+5,this.y,this.x-5,this.y-5,this.x+2.5,this.y-5);
+    }
     stroke('white');
   }
 }
@@ -87,11 +100,11 @@ function draw() {
   //done drawing city
   
   //test pointer
-  let red1 = new Pointer(red1x, red1y,'red');
+  let red1 = new Pointer(red1x, red1y,'red', red1d, red1s);
   red1.display()
-  let red2 = new Pointer(red2x, red2y,'red');
+  let red2 = new Pointer(red2x, red2y,'red', red2d, red2s);
   red2.display()
-  let red3 = new Pointer(red3x, red3y,'red');
+  let red3 = new Pointer(red3x, red3y,'red', red3d, red3s);
   red3.display()
   let blue = new Pointer(bluex, bluey,'cyan');
   blue.display()
