@@ -26,6 +26,10 @@ let red2s = true;
 let red3s = true;
 let blues = true;
 
+//varies on key input
+let blueds = true;
+let bluess = true;
+
 let blueslow = true;
 //initializing array with board colors
 for (let x=0; x<=50; x++){
@@ -83,6 +87,22 @@ class Pointer {
       triangle(this.x+5,this.y,this.x-5,this.y-5,this.x+2.5,this.y-5);
     }
     stroke('white');
+  }
+}
+
+function keyPressed(){
+  if (key == 'A' || key == 'a') {
+    blueds = true;
+    bluess = false;
+  }else if (key == 'S' || key == 's') {
+    blueds = false;
+    bluess = true;
+  }else if (key == 'D' || key == 'd') {
+    blueds = true;
+    bluess = true;
+  }else if (key == 'W' || key == 'w') {
+    blueds = false;
+    bluess = false;
   }
 }
 
@@ -218,10 +238,18 @@ function draw() {
   
   //blue here
   if (bluex%50 ==0 && (bluey-10)%50==0){
-    blued = Math.random(0,1)>0.5;
-    blues = Math.random(0,1)>0.5;
+    if (blued != blueds){
+      blued = blueds;
+    }
+    if (blues != bluess) {
+      blues = bluess;
+    }
   }
   if (blued && blueslow){//horizontal
+    //set blues to bluess if conditions met
+    if (blues != bluess) {
+        blues = bluess;
+      }
     if (blues) { //go right
       if (bluex+10<=500){
         bluex +=10;
@@ -236,6 +264,9 @@ function draw() {
       }
     }
   }else if(!blued && blueslow){//vertical
+    if (blues != bluess){
+      blues = bluess;
+    }
     if (blues) { //go down
       if (bluey +10<= 500){
         bluey +=10;
@@ -243,7 +274,7 @@ function draw() {
         blues = false;
       }
     }else{//go up
-      if (red3y-10>=10){
+      if (bluey-10>=10){
         bluey -=10;
       }else{
         blues = true;
