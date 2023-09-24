@@ -294,7 +294,7 @@ function draw() {
       blues = bluess;
     }
     if (blues) { //go down
-      if (bluey +10<= 500){
+      if (bluey +10<= 510){
         bluey +=10;
       }else{
         blues = false;
@@ -312,8 +312,9 @@ function draw() {
   fill(51,46,46);
   stroke(51,46,46);
   textFont('Nunito Sans',50);
-  text("Press X to Restart",540,105);
+  text("Press X to Restart",550,105);
   textSize(30);
-  text("Use ASWD to control the Blue Car",540, 205);
-  text("Avoid the Red Ambulances",540, 255);
+  text("Use ASWD to control the Blue Car",550, 205);
+  text("as if you're driving on the road",550, 255);
+  text("Avoid the Red Ambulances",550, 305);
 }
