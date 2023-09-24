@@ -268,7 +268,7 @@ function draw() {
       blues = bluess;
     }
     if (blues) { //go down
-      if (bluey +10<= 500){
+      if (bluey +10<= 510){
         bluey +=10;
       }else{
         blues = false;
