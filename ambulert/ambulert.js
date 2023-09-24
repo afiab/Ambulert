@@ -25,6 +25,8 @@ let red1s = true;
 let red2s = true;
 let red3s = true;
 let blues = true;
+
+let blueslow = true;
 //initializing array with board colors
 for (let x=0; x<=50; x++){
   let temp = []
@@ -219,7 +221,7 @@ function draw() {
     blued = Math.random(0,1)>0.5;
     blues = Math.random(0,1)>0.5;
   }
-  if (blued){//horizontal
+  if (blued && blueslow){//horizontal
     if (blues) { //go right
       if (bluex+10<=500){
         bluex +=10;
@@ -233,7 +235,7 @@ function draw() {
         blues = true;
       }
     }
-  }else{//vertical
+  }else if(!blued && blueslow){//vertical
     if (blues) { //go down
       if (bluey +10<= 500){
         bluey +=10;
@@ -248,4 +250,5 @@ function draw() {
       }
     }
   }
+  blueslow = !blueslow;
 }
