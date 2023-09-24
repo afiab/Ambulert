@@ -8,13 +8,13 @@ let yCor = [];
 
 //x and y coords of pointers
 let bluex = 250;
-let bluey = 450;
+let bluey = 410;
 let red1x = 0;
-let red1y = 100;
+let red1y = 10;
 let red2x = 150;
-let red2y = 300;
+let red2y = 10;
 let red3x = 500;
-let red3y = 50;
+let red3y = 60;
 //horizontal or vertical movement
 let red1d = true;
 let red2d = true;
@@ -97,19 +97,19 @@ function draw() {
   blue.display()
   
   //direction for red1d
-  if (red1x%50 ==0 && red1y%50==0){
+  if (red1x%50 ==0 && (red1y-10)%50==0){
     red1d = Math.random(0,1)>0.5;
     red1s = Math.random(0,1)>0.5;
   }
   if (red1d){//horizontal
     if (red1s) { //go right
-      if (red1x != 510){
+      if (red1x+10<=510){
         red1x +=10;
       }else{
         red1s = false;
       }
     }else{//go left
-      if (red1x != 0){
+      if (red1x-10>=0){
         red1x -=10;
       }else{
         red1s = true;
@@ -117,16 +117,50 @@ function draw() {
     }
   }else{//vertical
     if (red1s) { //go down
-      if (red1y != 510){
+      if (red1y +10<= 510){
         red1y +=10;
       }else{
         red1s = false;
       }
     }else{//go up
-      if (red1y != 0){
+      if (red1y-10>=10){
         red1y -=10;
       }else{
-        red1y = false;
+        red1s = true;
+      }
+    }
+  }
+  //red2 here
+  if (red2x%50 ==0 && (red2y-10)%50==0){
+    red2d = Math.random(0,1)>0.5;
+    red2s = Math.random(0,1)>0.5;
+  }
+  if (red2d){//horizontal
+    if (red2s) { //go right
+      if (red2x+10<=510){
+        red2x +=10;
+      }else{
+        red2s = false;
+      }
+    }else{//go left
+      if (red2x-10>=0){
+        red2x -=10;
+      }else{
+        red2s = true;
+      }
+    }
+  }else{//vertical
+    if (red2s) { //go down
+      if (red2y+10<=510){
+        red2y +=10;
+      }else{
+        red2s = false;
+      }
+    }else{//go up
+      if (red2y-10>=10){
+        red2y -=10;
+      }else{
+        red2s = true;
       }
     }
   }
