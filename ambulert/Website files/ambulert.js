@@ -10,6 +10,8 @@ let red2x = Math.floor(Math.random() * 10)*50;
 let red2y = Math.floor(Math.random() * 10)*50 +10;
 let red3x = Math.floor(Math.random() * 10)*50;
 let red3y = Math.floor(Math.random() * 10)*50 +10;
+let goalx = Math.floor(Math.random() * 10);
+let goaly = Math.floor(Math.random() * 10);
 
 //horizontal or vertical movement
 let red1d = true;
@@ -112,6 +114,8 @@ function keyPressed(){
     red2y = Math.floor(Math.random() * 10)*50 +10;
     red3x = Math.floor(Math.random() * 10)*50;
     red3y = Math.floor(Math.random() * 10)*50 +10;
+    let goalx = Math.floor(Math.random() * 10);
+    let goaly = Math.floor(Math.random() * 10);
     //horizontal or vertical movement
     red1d = true;
     red2d = true;
@@ -152,6 +156,9 @@ function draw() {
       }
     }
   }
+  fill('cyan');
+  stroke('cyan');
+  square((goalx*50),goaly*50,10);
   //done drawing city
   
   //test pointer
@@ -269,6 +276,36 @@ function draw() {
     }
     
     //blue here
+    if (Math.abs(bluex-(goalx*50))<15 && Math.abs(bluey-(goaly*50))<15){
+      //x and y coords of pointers
+      bluex = Math.floor(Math.random() * 10)*50;
+      bluey = Math.floor(Math.random() * 10)*50 +10;
+      red1x = Math.floor(Math.random() * 10)*50;
+      red1y = Math.floor(Math.random() * 10)*50 +10;
+      red2x = Math.floor(Math.random() * 10)*50;
+      red2y = Math.floor(Math.random() * 10)*50 +10;
+      red3x = Math.floor(Math.random() * 10)*50;
+      red3y = Math.floor(Math.random() * 10)*50 +10;
+      goalx = Math.floor(Math.random() * 10);
+      goaly = Math.floor(Math.random() * 10);
+      //horizontal or vertical movement
+      red1d = true;
+      red2d = true;
+      red3d = true;
+      blued = true;
+      //left+right or up+down movement
+      red1s = true;
+      red2s = true;
+      red3s = true;
+      blues = true;
+      
+      //varies on key input
+      blueds = true;
+      bluess = true;
+      
+      blueslow = true;
+      lost = false;
+    }
     if (bluex%50 ==0 && (bluey-10)%50==0){
       if (blued != blueds){
         blued = blueds;
