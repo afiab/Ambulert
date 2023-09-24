@@ -313,8 +313,8 @@ function draw() {
     blueslow = !blueslow;
   }
   
-  fill(51,46,46);
-  stroke(51,46,46);
+  fill(248,248,248);
+  stroke(248,248,248);
   textFont('Nunito Sans',50);
   text("Press X to Restart",550,105);
   textSize(30);
@@ -328,18 +328,18 @@ function draw() {
   fill(255,39,39);
   rect(520, 355, 400, 100);
   if (lost){
-    fill(51,46,46);
-     stroke(51,46,46);
+    fill(248,248,248);
+     stroke(248,248,248);
      text("LOSER; Press X to try again",550, 385);
   }else{
     if( (Math.abs(red1x-bluex)<=Lose && Math.abs(red1y-bluey)<=Lose) || (Math.abs(red2x-bluex)<=Lose && Math.abs(red2y-bluey)<=Lose) || (Math.abs(red3x-bluex)<=Lose && Math.abs(red3y-bluey)<=Lose) ){
-       fill(51,46,46);
-       stroke(51,46,46);
+       fill(248,248,248);
+       stroke(248,248,248);
        text("LOSER; Press X to try again",550, 385);
        lost = true;
     }else if( (Math.abs(red1x-bluex)<=Warn && Math.abs(red1y-bluey)<=Warn) || (Math.abs(red2x-bluex)<=Warn && Math.abs(red2y-bluey)<=Warn) || (Math.abs(red3x-bluex)<=Warn && Math.abs(red3y-bluey)<=Warn) ){
-       fill(51,46,46);
-       stroke(51,46,46);
+       fill(248,248,248);
+       stroke(248,248,248);
        text("An Ambulance is nearby!",550, 385);
     }
   }
