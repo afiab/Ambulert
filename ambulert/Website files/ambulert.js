@@ -2,14 +2,15 @@ let board = []
 
 //x and y coords of pointers
 let rawtime = 0;
-let bluex = 250;
-let bluey = 410;
-let red1x = 0;
-let red1y = 10;
-let red2x = 150;
-let red2y = 10;
-let red3x = 500;
-let red3y = 60;
+let bluex = Math.floor(Math.random() * 10)*50;
+let bluey = Math.floor(Math.random() * 10)*50 +10;
+let red1x = Math.floor(Math.random() * 10)*50;
+let red1y = Math.floor(Math.random() * 10)*50 +10;
+let red2x = Math.floor(Math.random() * 10)*50;
+let red2y = Math.floor(Math.random() * 10)*50 +10;
+let red3x = Math.floor(Math.random() * 10)*50;
+let red3y = Math.floor(Math.random() * 10)*50 +10;
+
 //horizontal or vertical movement
 let red1d = true;
 let red2d = true;
