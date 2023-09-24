@@ -116,7 +116,7 @@ function draw() {
   }
   if (red1d){//horizontal
     if (red1s) { //go right
-      if (red1x+10<=510){
+      if (red1x+10<=500){
         red1x +=10;
       }else{
         red1s = false;
@@ -130,7 +130,7 @@ function draw() {
     }
   }else{//vertical
     if (red1s) { //go down
-      if (red1y +10<= 510){
+      if (red1y +10<= 500){
         red1y +=10;
       }else{
         red1s = false;
@@ -150,7 +150,7 @@ function draw() {
   }
   if (red2d){//horizontal
     if (red2s) { //go right
-      if (red2x+10<=510){
+      if (red2x+10<=500){
         red2x +=10;
       }else{
         red2s = false;
@@ -164,7 +164,7 @@ function draw() {
     }
   }else{//vertical
     if (red2s) { //go down
-      if (red2y+10<=510){
+      if (red2y+10<=500){
         red2y +=10;
       }else{
         red2s = false;
@@ -174,6 +174,40 @@ function draw() {
         red2y -=10;
       }else{
         red2s = true;
+      }
+    }
+  }
+  //direction for red3
+  if (red3x%50 ==0 && (red3y-10)%50==0){
+    red3d = Math.random(0,1)>0.5;
+    red3s = Math.random(0,1)>0.5;
+  }
+  if (red3d){//horizontal
+    if (red3s) { //go right
+      if (red3x+10<=500){
+        red3x +=10;
+      }else{
+        red3s = false;
+      }
+    }else{//go left
+      if (red3x-10>=0){
+        red3x -=10;
+      }else{
+        red3s = true;
+      }
+    }
+  }else{//vertical
+    if (red3s) { //go down
+      if (red3y +10<= 500){
+        red3y +=10;
+      }else{
+        red3s = false;
+      }
+    }else{//go up
+      if (red3y-10>=10){
+        red3y -=10;
+      }else{
+        red3s = true;
       }
     }
   }
