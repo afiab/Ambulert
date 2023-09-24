@@ -1,0 +1,27 @@
+html {
+    height: auto;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #FF2727;
+  }
+  
+  .title {
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    border-color: #332e2e;
+    float: left;
+  }
+  
+  .first {
+    margin-top: -5%;
+  }
+  
+  h1 {
+    color: #F8F8F8;
+    font-size: 7.0vw;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-top: -5em;
+  }
